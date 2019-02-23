@@ -5,6 +5,7 @@
  */
 package com.PcConfigurator;
 
+import com.PcConfigurator.supplierclasses.Processor;
 import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;

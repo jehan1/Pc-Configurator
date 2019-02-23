@@ -3,13 +3,15 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.PcConfigurator;
+package com.PcConfigurator.supplierclasses;
 
 import java.io.Serializable;
+import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
+import javax.validation.constraints.NotNull;
 
 /**
  *
@@ -21,6 +23,8 @@ public  class Parts implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
+    @Column(unique=true)
+    @NotNull
     private String name;
     
     public Parts(){}
@@ -29,6 +33,8 @@ public  class Parts implements Serializable {
         this.setName(name);
         
     }
+    
+    
      public int getId() {
         return id;
     }
@@ -44,4 +50,10 @@ public  class Parts implements Serializable {
     public void setName(String name) {
         this.name = name;
     }
+     public String toString() {
+        return "Processor{" +
+                "id=" + id +
+                ", title='" + name + '\'' +
+                '}';
+     }
 }

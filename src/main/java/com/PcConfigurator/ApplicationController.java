@@ -5,6 +5,7 @@
  */
 package com.PcConfigurator;
 
+import com.PcConfigurator.supplierclasses.Processor;
 import java.util.List;
 import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,12 +27,13 @@ public class ApplicationController {
     public @ResponseBody Iterable<Processor> index(){
         return processorRespository.findAll();
     }
-    
+   
     @PostMapping(path="/Processor/Search")
     public List<Processor> search(@RequestBody Map<String, String> body){
         String searchTerm = body.get("text");
             return processorRespository.findByNameContaining(searchTerm);
     }
+    
 
 //    @GetMapping("/Processor/{id}")
 //    public Processor show(@PathVariable String id){
