@@ -6,34 +6,32 @@
 package com.PcConfigurator.supplierclasses;
 
 import javax.persistence.Entity;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
 
 /**
  *
- * @author Jehan & Chethika
+ * @author Jehan
  */
 @Entity
-@Table(name = "case")
+@Table(name = "`case`")
 public class Case extends Parts {
 
-    private enum Size{ ATX, MICRO_ATX , ITX, THIN_MINI_ITX}
-    @NotNull
-    Size size;
-    public Case(int id, String name, Size size ) {
+    public Case(int id, String name, CaseSize caseSize) {
         super(id, name);
-        this.size=size;
+        this.caseSize = caseSize;
+        
     }
     public Case(){}
 
-    public Size getSize() {
-        return size;
-    }
-
-    public void setSize(Size size) {
-        this.size = size;
-    }
+    @ManyToOne
+    @JoinColumn(name = "case_size_id")
     
+    private CaseSize caseSize;
     
- 
+    public CaseSize getCaseSize() {
+        return caseSize;
+    }
+  
 }

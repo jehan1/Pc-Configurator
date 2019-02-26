@@ -22,47 +22,47 @@ import javax.validation.constraints.NotNull;
  * @author Jehan 
  */
 @Entity
-@Table(name = "processor_socket")
-public class ProcessorSocket {
+@Table(name = "case_size")
+public class CaseSize {
+    
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     @Column(unique=true)
     @NotNull
-    private String socketn;
+    private String size;
 
-    public ProcessorSocket(int id, String socket) {
-        this.setId(id);
-        this.setSocket(socket);
+    public CaseSize(int id, String size) {
+        this.id = id;
+        this.size = size;
     }
     
-    public ProcessorSocket() {}
+    public CaseSize(){}
     
-    @OneToMany(mappedBy = "processorSocket", cascade = CascadeType.ALL, 
+     @OneToMany(mappedBy = "caseSize", cascade = CascadeType.ALL, 
             orphanRemoval = true)
     
-    private List<Processor> processors = new ArrayList();
+    private List<Case> casename = new ArrayList();
 
     public int getId() {
         return id;
-   }
+    }
 
     public void setId(int id) {
         this.id = id;
     }
 
-    public String getSocket() {
-        return socketn;
+    public String getSize() {
+        return size;
     }
 
-    public void setSocket(String socket) {
-        this.socketn = socket;
+    public void setSize(String size) {
+        this.size = size;
     }
 
     @Override
     public String toString() {
-        return "ProcessorSocket{" + "socketn=" + socketn + '}';
+        return "CaseSize{" + "id=" + id + ", size=" + size + '}';
     }
-    
-    
+      
 }

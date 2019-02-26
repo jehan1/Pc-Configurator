@@ -19,50 +19,45 @@ import javax.validation.constraints.NotNull;
 
 /**
  *
- * @author Jehan 
+ * @author Jehan & Chethika
  */
 @Entity
-@Table(name = "processor_socket")
-public class ProcessorSocket {
+@Table(name = "memory_type")
+public class MemoryType {
+    
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
-    @Column(unique=true)
+    
+    @Column(name = "memory_type", unique=true)
     @NotNull
-    private String socketn;
+    private String memoryType;
 
-    public ProcessorSocket(int id, String socket) {
-        this.setId(id);
-        this.setSocket(socket);
+    public MemoryType(int id, String memoryType) {
+        this.id = id;
+        this.memoryType = memoryType;
     }
-    
-    public ProcessorSocket() {}
-    
-    @OneToMany(mappedBy = "processorSocket", cascade = CascadeType.ALL, 
-            orphanRemoval = true)
-    
-    private List<Processor> processors = new ArrayList();
 
+    public MemoryType(){}
+    
     public int getId() {
         return id;
-   }
+    }
 
     public void setId(int id) {
         this.id = id;
     }
 
-    public String getSocket() {
-        return socketn;
+    public String getMemoryType() {
+        return memoryType;
     }
 
-    public void setSocket(String socket) {
-        this.socketn = socket;
-    }
-
-    @Override
-    public String toString() {
-        return "ProcessorSocket{" + "socketn=" + socketn + '}';
+    public void setMemoryType(String memoryType) {
+        this.memoryType = memoryType;
     }
     
+    @OneToMany(mappedBy = "memoryType", cascade = CascadeType.ALL, 
+            orphanRemoval = true)
     
+    private List<Memory> memory = new ArrayList();
 }

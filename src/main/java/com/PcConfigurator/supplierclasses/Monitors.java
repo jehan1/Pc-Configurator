@@ -11,7 +11,7 @@ import javax.validation.constraints.NotNull;
 
 /**
  *
- * @author Jehan & Chethika
+ * @author Jehan 
  */
 @Entity
 @Table(name="monitors")

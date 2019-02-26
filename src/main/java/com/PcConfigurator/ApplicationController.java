@@ -5,6 +5,11 @@
  */
 package com.PcConfigurator;
 
+import com.PcConfigurator.Repository.CaseRepo;
+import com.PcConfigurator.Repository.MemoryRepo;
+import com.PcConfigurator.Repository.ProcessorRepo;
+import com.PcConfigurator.supplierclasses.Case;
+import com.PcConfigurator.supplierclasses.Memory;
 import com.PcConfigurator.supplierclasses.Processor;
 import java.util.List;
 import java.util.Map;
@@ -22,9 +27,16 @@ public class ApplicationController {
     
     @Autowired
     ProcessorRepo processorRespository;
+    
+    @Autowired
+    MemoryRepo memoryRepo;
+    
+    @Autowired
+    CaseRepo caseRepo;
+    
 
     @GetMapping(path="/Processor")
-    public @ResponseBody Iterable<Processor> index(){
+    public @ResponseBody Iterable<Processor> allProcessors(){
         return processorRespository.findAll();
     }
    
@@ -32,6 +44,16 @@ public class ApplicationController {
     public List<Processor> search(@RequestBody Map<String, String> body){
         String searchTerm = body.get("text");
             return processorRespository.findByNameContaining(searchTerm);
+    }
+    
+      @GetMapping(path="/Memory")
+    public @ResponseBody Iterable<Memory> allMemory(){
+        return memoryRepo.findAll();
+    }
+    
+      @GetMapping(path="/Case")
+    public @ResponseBody Iterable<Case> allCase(){
+        return caseRepo.findAll();
     }
     
 

@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.PcConfigurator;
+package com.PcConfigurator.Repository;
 
 import com.PcConfigurator.supplierclasses.Processor;
 import java.util.List;
@@ -12,7 +12,7 @@ import org.springframework.stereotype.Repository;
 
 /**
  *
- * @author Jehan & Chethika
+ * @author Jehan 
  */
 
 @Repository
