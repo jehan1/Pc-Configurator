@@ -19,6 +19,8 @@ import javax.validation.constraints.NotNull;
 @Entity
 @Table(name="processor")
 public class Processor extends Parts  {
+    
+    public Processor(){}
 
     public Processor(String speed, int id, String name, ProcessorSocket processorSocket) {
         super(id, name);
@@ -33,8 +35,6 @@ public class Processor extends Parts  {
     
     private ProcessorSocket processorSocket;
     
-    public Processor(){}
-
     public ProcessorSocket getProcessorSocket() {
        return processorSocket;
     }

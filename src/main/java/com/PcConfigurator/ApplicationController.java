@@ -7,9 +7,13 @@ package com.PcConfigurator;
 
 import com.PcConfigurator.Repository.CaseRepo;
 import com.PcConfigurator.Repository.MemoryRepo;
+import com.PcConfigurator.Repository.MonitorsRepo;
+import com.PcConfigurator.Repository.PowerSupplyRepo;
 import com.PcConfigurator.Repository.ProcessorRepo;
 import com.PcConfigurator.supplierclasses.Case;
 import com.PcConfigurator.supplierclasses.Memory;
+import com.PcConfigurator.supplierclasses.Monitors;
+import com.PcConfigurator.supplierclasses.PowerSupply;
 import com.PcConfigurator.supplierclasses.Processor;
 import java.util.List;
 import java.util.Map;
@@ -34,10 +38,21 @@ public class ApplicationController {
     @Autowired
     CaseRepo caseRepo;
     
+    @Autowired
+    MonitorsRepo monitorsRepo;
+    
+    @Autowired
+    PowerSupplyRepo powerSupplyRepo;
+    
 
     @GetMapping(path="/Processor")
     public @ResponseBody Iterable<Processor> allProcessors(){
         return processorRespository.findAll();
+    }
+   
+    @GetMapping(path="/Monitors")
+    public @ResponseBody Iterable<Monitors> allMonitors(){
+        return monitorsRepo.findAll();
     }
    
     @PostMapping(path="/Processor/Search")
@@ -46,16 +61,20 @@ public class ApplicationController {
             return processorRespository.findByNameContaining(searchTerm);
     }
     
-      @GetMapping(path="/Memory")
+    @GetMapping(path="/Memory")
     public @ResponseBody Iterable<Memory> allMemory(){
         return memoryRepo.findAll();
     }
     
-      @GetMapping(path="/Case")
+    @GetMapping(path="/Case")
     public @ResponseBody Iterable<Case> allCase(){
         return caseRepo.findAll();
     }
     
+    @GetMapping(path="/PowerSupply")
+    public @ResponseBody Iterable<PowerSupply> allPowerSupplies(){
+        return powerSupplyRepo.findAll();
+    }
 
 //    @GetMapping("/Processor/{id}")
 //    public Processor show(@PathVariable String id){

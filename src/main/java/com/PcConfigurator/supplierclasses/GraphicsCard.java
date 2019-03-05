@@ -7,7 +7,7 @@ package com.PcConfigurator.supplierclasses;
 
 /**
  *
- * @author Jehan & Chethika
+ * @author Jehan 
  */
 public class GraphicsCard {
     
