@@ -6,15 +6,21 @@
 package com.PcConfigurator;
 
 import com.PcConfigurator.Repository.CaseRepo;
+import com.PcConfigurator.Repository.GraphicsCardRepo;
 import com.PcConfigurator.Repository.MemoryRepo;
 import com.PcConfigurator.Repository.MonitorsRepo;
+import com.PcConfigurator.Repository.MotherboardRepo;
 import com.PcConfigurator.Repository.PowerSupplyRepo;
 import com.PcConfigurator.Repository.ProcessorRepo;
+import com.PcConfigurator.Repository.StorageDriveRepo;
 import com.PcConfigurator.supplierclasses.Case;
+import com.PcConfigurator.supplierclasses.GraphicsCard;
 import com.PcConfigurator.supplierclasses.Memory;
 import com.PcConfigurator.supplierclasses.Monitors;
+import com.PcConfigurator.supplierclasses.Motherboard;
 import com.PcConfigurator.supplierclasses.PowerSupply;
 import com.PcConfigurator.supplierclasses.Processor;
+import com.PcConfigurator.supplierclasses.StorageDrive;
 import java.util.List;
 import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +30,7 @@ import org.springframework.web.bind.annotation.*;
 
 /**
  *
- * @author Jehan & Chethika
+ * @author Jehan
  */
 @RestController
 public class ApplicationController {
@@ -44,7 +50,15 @@ public class ApplicationController {
     @Autowired
     PowerSupplyRepo powerSupplyRepo;
     
+    @Autowired
+    StorageDriveRepo storageDriveRepo;
 
+    @Autowired
+    GraphicsCardRepo graphicsCardRepo;
+    
+    @Autowired
+    MotherboardRepo motherboardRepo;
+    
     @GetMapping(path="/Processor")
     public @ResponseBody Iterable<Processor> allProcessors(){
         return processorRespository.findAll();
@@ -74,6 +88,21 @@ public class ApplicationController {
     @GetMapping(path="/PowerSupply")
     public @ResponseBody Iterable<PowerSupply> allPowerSupplies(){
         return powerSupplyRepo.findAll();
+    }
+    
+    @GetMapping(path="/StorageDrive")
+    public @ResponseBody Iterable<StorageDrive> allStorageDrive(){
+        return storageDriveRepo.findAll();
+    }
+    
+    @GetMapping(path="/GraphicsCards")
+    public @ResponseBody Iterable<GraphicsCard> allGraphicsCards(){
+        return graphicsCardRepo.findAll();
+    }
+    
+    @GetMapping(path="/Motherboard")
+    public @ResponseBody Iterable<Motherboard> allMotherboards(){
+        return motherboardRepo.findAll();
     }
 
 //    @GetMapping("/Processor/{id}")

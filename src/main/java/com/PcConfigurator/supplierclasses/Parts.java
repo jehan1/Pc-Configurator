@@ -18,7 +18,7 @@ import javax.validation.constraints.NotNull;
  * @author Jehan 
  */
 @MappedSuperclass
-public  class Parts implements Serializable {
+public  class Parts {
     
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

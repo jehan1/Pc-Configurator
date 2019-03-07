@@ -5,7 +5,9 @@
  */
 package com.PcConfigurator.supplierclasses;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.CascadeType;
@@ -22,7 +24,8 @@ import javax.validation.constraints.NotNull;
  */
 @Entity
 @Table(name="monitors")
-public class Monitors extends Parts {
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
+public class Monitors extends Parts implements Serializable{
 
     @JsonManagedReference
     @ManyToMany(cascade = CascadeType.ALL)
@@ -30,28 +33,27 @@ public class Monitors extends Parts {
                         (name = "monitors_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(name = "video_ports_id",
                     referencedColumnName = "id"))
-    public List<VideoPorts> videoPorts;
+    public List<VideoPorts> videoPort;
     
     @NotNull
     private int hertz;
     
     public List<VideoPorts> getVideoPorts() {
-        return videoPorts;
+        return videoPort;
     }
 
     public Monitors(){}
     
     public Monitors(List<VideoPorts> videoPorts, int hertz, int id, String name) {
         super(id, name);
-        this.videoPorts = videoPorts;
+        this.videoPort = videoPorts;
         this.hertz = hertz;
     }
  
     public void setVideoPorts(List<VideoPorts> videoPorts) {
-        this.videoPorts = videoPorts;
+        this.videoPort = videoPorts;
     }
- 
-    
+
     public int getHertz() {
         return hertz;
     }

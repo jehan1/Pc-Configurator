@@ -11,7 +11,7 @@ import org.springframework.stereotype.Repository;
 
 /**
  *
- * @author Jehan & Chethika
+ * @author Jehan
  */
 @Repository
 public interface MonitorsRepo extends JpaRepository<Monitors, Integer> {

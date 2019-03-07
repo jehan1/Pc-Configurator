@@ -5,6 +5,7 @@
  */
 package com.PcConfigurator.supplierclasses;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.CascadeType;
@@ -14,7 +15,7 @@ import javax.persistence.Table;
 
 /**
  *
- * @author Jehan & Chethika
+ * @author Jehan
  */
 @Entity
 @Table(name = "storage_type")
@@ -27,6 +28,7 @@ public class StorageType extends Parts{
         super(id, name);
     }
 
+    @JsonBackReference
     @OneToMany(mappedBy = "storageType", cascade = CascadeType.ALL, 
             orphanRemoval = true)
     

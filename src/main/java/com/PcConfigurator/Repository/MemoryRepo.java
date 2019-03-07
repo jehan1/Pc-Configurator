@@ -13,7 +13,7 @@ import org.springframework.stereotype.Repository;
 
 /**
  *
- * @author Jehan & Chethika
+ * @author Jehan 
  */
 @Repository
 public interface MemoryRepo extends JpaRepository<Memory, Integer>{

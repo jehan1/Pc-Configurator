@@ -5,13 +5,13 @@
  */
 package com.PcConfigurator.Repository;
 
-import com.PcConfigurator.supplierclasses.PowerSupply;
+import com.PcConfigurator.supplierclasses.StorageDrive;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 /**
  *
- * @author Jehan 
+ * @author Jehan
  */
-public interface PowerSupplyRepo extends JpaRepository<PowerSupply, Integer>{
+public interface StorageDriveRepo extends JpaRepository <StorageDrive, Integer> {
     
 }

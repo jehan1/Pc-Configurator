@@ -12,7 +12,7 @@ import org.springframework.stereotype.Repository;
 
 /**
  *
- * @author Jehan & Chethika
+ * @author Jehan 
  */
 @Repository
 public interface CaseRepo extends JpaRepository<Case, Integer>{

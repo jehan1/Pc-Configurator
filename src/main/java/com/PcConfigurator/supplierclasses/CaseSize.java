@@ -41,9 +41,12 @@ public class CaseSize {
     
      @OneToMany(mappedBy = "caseSize", cascade = CascadeType.ALL, 
             orphanRemoval = true)
-    
     private List<Case> casename = new ArrayList();
-
+     
+    @OneToMany(mappedBy = "caseSize", cascade = CascadeType.ALL, 
+            orphanRemoval = true)
+    private List<Motherboard> motherboard = new ArrayList();
+     
     public int getId() {
         return id;
     }

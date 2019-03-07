@@ -5,6 +5,7 @@
  */
 package com.PcConfigurator.supplierclasses;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -13,7 +14,7 @@ import javax.validation.constraints.NotNull;
 
 /**
  *
- * @author Jehan & Chethika
+ * @author Jehan 
  */
 @Entity
 @Table(name = "storage_drive" )
@@ -22,13 +23,15 @@ public class StorageDrive extends Parts {
     @NotNull
     private int capasity;
     
+    @JsonManagedReference
     @ManyToOne
     @JoinColumn(name = "storage_type_id")
     
     private StorageType storageType;
     
+    @JsonManagedReference
     @ManyToOne
-    @JoinColumn(name = "m.2_ports_id")
+    @JoinColumn(name = " m_ports_id ")
     
     private PortsM portsM;
 

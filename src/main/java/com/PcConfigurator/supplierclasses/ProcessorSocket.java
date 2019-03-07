@@ -40,8 +40,11 @@ public class ProcessorSocket {
     
     @OneToMany(mappedBy = "processorSocket", cascade = CascadeType.ALL, 
             orphanRemoval = true)
-    
     private List<Processor> processors = new ArrayList();
+    
+    @OneToMany(mappedBy = "processorSocket", cascade = CascadeType.ALL, 
+            orphanRemoval = true)
+    private List<Motherboard> motherboard = new ArrayList();
 
     public int getId() {
         return id;

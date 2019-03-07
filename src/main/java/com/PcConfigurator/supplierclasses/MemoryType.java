@@ -19,7 +19,7 @@ import javax.validation.constraints.NotNull;
 
 /**
  *
- * @author Jehan & Chethika
+ * @author Jehan 
  */
 @Entity
 @Table(name = "memory_type")
@@ -58,6 +58,9 @@ public class MemoryType {
     
     @OneToMany(mappedBy = "memoryType", cascade = CascadeType.ALL, 
             orphanRemoval = true)
-    
     private List<Memory> memory = new ArrayList();
+    
+    @OneToMany(mappedBy = "memoryType", cascade = CascadeType.ALL, 
+            orphanRemoval = true)
+    private List<Motherboard> motherboard = new ArrayList();
 }

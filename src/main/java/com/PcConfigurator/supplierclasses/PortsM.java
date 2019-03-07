@@ -5,6 +5,7 @@
  */
 package com.PcConfigurator.supplierclasses;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.CascadeType;
@@ -14,16 +15,17 @@ import javax.persistence.Table;
 
 /**
  *
- * @author Jehan & Chethika
+ * @author Jehan 
  */
 @Entity
-@Table(name = "m.2_ports")
+@Table(name = "m_ports")
 public class PortsM extends Parts {
     
+    @JsonBackReference
     @OneToMany(mappedBy = "portsM", cascade = CascadeType.ALL, 
             orphanRemoval = true)
     
-    private List<PortsM> portsM = new ArrayList();
+    private List<StorageDrive> storageDrive = new ArrayList();
 
     public PortsM() {
     }
@@ -32,12 +34,12 @@ public class PortsM extends Parts {
         super(id, name);
     }
 
-    public List<PortsM> getPortsM() {
-        return portsM;
+    public List<StorageDrive> getStorageDrive() {
+        return storageDrive;
     }
 
-    public void setPortsM(List<PortsM> portsM) {
-        this.portsM = portsM;
+    public void setPortsM(List<StorageDrive> storageDrive) {
+        this.storageDrive = storageDrive;
     }
     
     
