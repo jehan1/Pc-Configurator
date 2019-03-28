@@ -21,7 +21,7 @@ import javax.validation.constraints.NotNull;
 public  class Parts {
     
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     @Column(unique=true)
     @NotNull
