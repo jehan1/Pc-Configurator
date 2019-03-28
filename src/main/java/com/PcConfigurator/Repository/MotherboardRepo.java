@@ -6,7 +6,6 @@
 package com.PcConfigurator.Repository;
 
 import com.PcConfigurator.supplierclasses.Motherboard;
-import com.PcConfigurator.supplierclasses.PowerSupply;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
