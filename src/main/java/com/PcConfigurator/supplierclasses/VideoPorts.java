@@ -81,7 +81,6 @@ public class VideoPorts extends Parts {
         this.gCards = gCards;
     }
 
-    
     @Override
     public int getId() {
         return super.getId(); //To change body of generated methods, choose Tools | Templates.

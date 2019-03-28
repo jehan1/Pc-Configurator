@@ -5,9 +5,9 @@
  */
 package com.PcConfigurator.supplierclasses;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import java.io.Serializable;
 import java.util.Objects;
+
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
@@ -17,8 +17,10 @@ import javax.persistence.ManyToOne;
 import javax.persistence.MapsId;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 /**
- *
+ * This class the the join table class for the Graphics card and the Video Ports
+ * many to many relationship 
  * @author Jehan
  */
 @Entity
@@ -43,42 +45,43 @@ public class GraphicsCardsVideoPorts implements Serializable  {
     @Column(name = "quantity")
     private int quantity;
 
-    public GraphicsCardsVideoPorts( GraphicsCard graphicsCard, 
-             int quantity) {
+    /**
+     * Initialise the graphics cards video ports object
+     * @param graphicsCard Graphics Card object
+     * @param quantity no of video ports
+     */
+    public GraphicsCardsVideoPorts( GraphicsCard graphicsCard,
+            VideoPorts videoPorts, int quantity) {
         this.graphicsCard = graphicsCard;
         this.quantity = quantity;
-    }
-
-    public GraphicsCardsVideoPorts() {}
-
-    public GraphicsCardsVideoPortsId getId() {
-        return id;
-    }
-
-    public void setId(GraphicsCardsVideoPortsId id) {
-        this.id = id;
-    }
-
-    public GraphicsCard getGraphicsCard() {
-        return graphicsCard;
-    }
-
-    public void setGraphicsCard(GraphicsCard graphicsCard) {
-        this.graphicsCard = graphicsCard;
-    }
-
-    public VideoPorts getVideoPorts() {
-        return videoPorts;
-    }
-
-    public void setVideoPorts(VideoPorts videoPorts) {
         this.videoPorts = videoPorts;
     }
 
+    /**
+     * Empty Constructor for the persistence framework
+     */
+    public GraphicsCardsVideoPorts() {}
+
+    /**
+     * 
+     * @return the graphics card ID and Video port ID
+     */
+    public GraphicsCardsVideoPortsId getId() {
+        return id;
+    }
+ 
+    /**
+     * 
+     * @return the number of video ports in the graphics card
+     */
     public int getQuantity() {
         return quantity;
     }
 
+    /**
+     * Sets the number of video ports in the graphics card
+     * @param quantity no of video Ports
+     */
     public void setQuantity(int quantity) {
         this.quantity = quantity;
     }

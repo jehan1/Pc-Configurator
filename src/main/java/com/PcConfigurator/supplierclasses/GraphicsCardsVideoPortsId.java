@@ -11,7 +11,8 @@ import javax.persistence.Embeddable;
 
 
 /**
- *
+ * This is the ID class for the many to many relationship between graphics card 
+ * and the video ports
  * @author Jehan 
  */
 @Embeddable
@@ -23,25 +24,49 @@ public class GraphicsCardsVideoPortsId implements Serializable{
     @Column(name = "video_ports_id")
     private int videoPortsId;
 
-    public void setGraphicsCardId(int graphicsCardId) {
-        this.graphicsCardId = graphicsCardId;
-    }
-
-    public void setVideoPortsId(int videoPortsId) {
-        this.videoPortsId = videoPortsId;
-    }
-   
+    /**
+     * Empty constructor for the persistence framework
+     */
     public GraphicsCardsVideoPortsId(){}
 
+    /**
+     * Initialise the graphics card Id and video port Id
+     * @param graphicsCardId 
+     * @param videoPortsId 
+     */
     public GraphicsCardsVideoPortsId(int graphicsCardId, int videoPortsId) {
         this.graphicsCardId = graphicsCardId;
         this.videoPortsId = videoPortsId;
     }
 
+    /**
+     * Set the graphics card id
+     * @param graphicsCardId Graphics card id
+     */
+    public void setGraphicsCardId(int graphicsCardId) {
+        this.graphicsCardId = graphicsCardId;
+    }
+
+    /**
+     * Set the video port Id
+     * @param videoPortsId 
+     */
+    public void setVideoPortsId(int videoPortsId) {
+        this.videoPortsId = videoPortsId;
+    }
+ 
+    /**
+     * 
+     * @return the graphics card id
+     */
     public int getGraphicsCardId() {
         return graphicsCardId;
     }
 
+    /**
+     * 
+     * @return the video port id
+     */
     public int getVideoPortsId() {
         return videoPortsId;
     }

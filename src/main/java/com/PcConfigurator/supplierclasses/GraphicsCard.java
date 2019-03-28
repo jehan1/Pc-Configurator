@@ -5,18 +5,19 @@
  */
 package com.PcConfigurator.supplierclasses;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-import java.util.ArrayList;
+
 import java.util.List;
 import java.util.Objects;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
 
+import javax.validation.constraints.NotNull;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 /**
  *
  * @author Jehan 
@@ -26,7 +27,7 @@ import javax.validation.constraints.NotNull;
 public class GraphicsCard extends Parts {
     
     @NotNull
-    String capasity;
+    String capacity;
     
     @ManyToOne
     @JoinColumn(name = "pci_lanes_id")
@@ -35,8 +36,24 @@ public class GraphicsCard extends Parts {
     @ManyToOne
     @JoinColumn(name = "molex_connectors")
     private MolexConnectors molexConnectors;
+    /**
+     * Empty Constructor for the persistence framework
+     */
+    public GraphicsCard() { }
     
-    public GraphicsCard() { 
+    /**
+     * Initialise the Graphics card objects
+     * @param capacity Capacity of the graphics card
+     * @param pciLanes Card's PCI Lane
+     * @param id Inherited from the super class
+     * @param name Inherited from the super class
+     */
+    public GraphicsCard(String capacity, PciLanes pciLanes,
+            MolexConnectors molexConnectors, int id, String name) {
+        super(id, name);
+        this.capacity = capacity;
+        this.pciLanes = pciLanes; 
+        this.molexConnectors = molexConnectors;
     }
     
     @JsonManagedReference
@@ -46,45 +63,66 @@ public class GraphicsCard extends Parts {
         orphanRemoval = true)
     private List<GraphicsCardsVideoPorts> videoPorts;
 
-    public GraphicsCard(String capasity, PciLanes pciLanes, int id, String name) {
-        super(id, name);
-        this.capasity = capasity;
-        this.pciLanes = pciLanes; 
-    }
-
+    /**
+     * 
+     * @return Get the no of Molex connectors the card has
+     */
     public MolexConnectors getMolexConnectors() {
         return molexConnectors;
     }
 
+    /**
+     * Set the number of Molex connectors
+     * @param molexConnectors number of Molex connectors
+     */
     public void setMolexConnectors(MolexConnectors molexConnectors) {
         this.molexConnectors = molexConnectors;
     }
- 
-    @Override
-    public int getId() {
-        return super.getId(); //To change body of generated methods, choose Tools | Templates.
-    }
 
+    /**
+     * 
+     * @return Return the video ports
+     */
     public List<GraphicsCardsVideoPorts> getVideoPorts() {
         return videoPorts;
     }
 
+    /**
+     * Set the video ports
+     * @param videoPorts Types of video ports the graphics card has
+     */
     public void setVideoPorts(List<GraphicsCardsVideoPorts> videoPorts) {
         this.videoPorts = videoPorts;
     }
 
-    public String getCapasity() {
-        return capasity;
+    /**
+     * 
+     * @return Get the capacity of the graphics card
+     */
+    public String getCapacity() {
+        return capacity;
     }
 
-    public void setCapasity(String capasity) {
-        this.capasity = capasity;
+    /**
+     * Set he graphics cards capacity
+     * @param capacity capacity of the graphics card
+     */
+    public void setCapacity(String capacity) {
+        this.capacity = capacity;
     }
 
+    /**
+     * 
+     * @return Get the PCI Lane of the card
+     */
     public PciLanes getPciLanes() {
         return pciLanes;
     }
 
+    /**
+     * Set the PCI Lane type
+     * @param pciLanes PCI Lane type
+     */
     public void setPciLanes(PciLanes pciLanes) {
         this.pciLanes = pciLanes;
     }
@@ -92,7 +130,7 @@ public class GraphicsCard extends Parts {
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 97 * hash + Objects.hashCode(this.capasity);
+        hash = 97 * hash + Objects.hashCode(this.capacity);
         return hash;
     }
 
@@ -108,7 +146,7 @@ public class GraphicsCard extends Parts {
             return false;
         }
         final GraphicsCard other = (GraphicsCard) obj;
-        if (!Objects.equals(this.capasity, other.capasity)) {
+        if (!Objects.equals(this.capacity, other.capacity)) {
             return false;
         }
         return true;
