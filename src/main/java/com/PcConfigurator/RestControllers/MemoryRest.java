@@ -24,7 +24,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class MemoryRest {
     
     @Autowired
-    MemoryRepo memoryRepository;
+    private MemoryRepo memoryRepository;
     
     /**
      * 

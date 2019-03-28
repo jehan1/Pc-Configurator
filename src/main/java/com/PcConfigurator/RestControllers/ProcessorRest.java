@@ -28,7 +28,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class ProcessorRest{
     
     @Autowired
-    ProcessorRepo processorRepository;
+    private ProcessorRepo processorRepository;
     
     /**
      * 
