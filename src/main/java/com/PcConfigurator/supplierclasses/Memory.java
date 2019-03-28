@@ -12,7 +12,7 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
 /**
- *
+ * This class maps the Memory database table
  * @author Jehan 
  */
 @Entity
@@ -20,37 +20,51 @@ import javax.validation.constraints.NotNull;
 public class Memory extends Parts {
     
     @NotNull
-    private int capasity;  
+    private int capacity;  
 
-    public Memory(int capasity, int id, String name) {
+    /**
+     * Initialise the Memory object
+     * @param capacity = Memory capacity
+     * @param id = this is inherited from the superclass
+     * @param name = name of the memory
+     */
+    public Memory(int capacity, int id, String name) {
         super(id, name);
-        this.capasity = capasity;
+        this.capacity = capacity;
     }
 
+    /**
+     * Empty Constructor for the persistence framework
+     */
     public Memory() {
     }
     
-    public int getCapasity() {
-        return capasity;
+    /**
+     * 
+     * @return the capacity of the memory
+     */
+    public int getCapacity() {
+        return capacity;
     }
 
-    public void setCapasity(int capasity) {
-        this.capasity = capasity;
+    /**
+     * Set the memory capacity
+     * @param capasity = Memory Capacity
+     */
+    public void setCapacity(int capasity) {
+        this.capacity = capasity;
     }
     
     @ManyToOne
     @JoinColumn(name = "memory_type_id")
-    
     private MemoryType memoryType;
 
+    /**
+     * 
+     * @return Memory Type object
+     */
     public MemoryType getMemoryType() {
         return memoryType;
     }
 
-    public void setMemoryType(MemoryType memoryType) {
-        this.memoryType = memoryType;
-    }
-    
-    
-    
 }

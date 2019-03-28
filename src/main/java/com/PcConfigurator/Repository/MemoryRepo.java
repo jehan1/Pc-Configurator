@@ -6,8 +6,6 @@
 package com.PcConfigurator.Repository;
 
 import com.PcConfigurator.supplierclasses.Memory;
-import com.PcConfigurator.supplierclasses.Processor;
-import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -17,8 +15,7 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface MemoryRepo extends JpaRepository<Memory, Integer>{
-    
-    //List<Processor> findByNameContaining(String text);
+   
   
 }
     
