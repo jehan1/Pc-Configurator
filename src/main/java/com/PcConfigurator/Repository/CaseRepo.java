@@ -6,7 +6,7 @@
 package com.PcConfigurator.Repository;
 
 import com.PcConfigurator.supplierclasses.Case;
-import com.PcConfigurator.supplierclasses.Processor;
+import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -17,4 +17,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface CaseRepo extends JpaRepository<Case, Integer>{
     
+    public List<Case> findBycaseSize(String name);
 }

@@ -18,11 +18,20 @@ import javax.persistence.Table;
 @Table(name = "`case`")
 public class Case extends Parts {
 
+    /**
+     * Initialise the Case
+     * @param id inherited from the superclass
+     * @param name inherited from the superclass
+     * @param caseSize Foreign key from Case size
+     */
     public Case(int id, String name, CaseSize caseSize) {
         super(id, name);
         this.caseSize = caseSize;
         
     }
+    /**
+     * Empty constructor for the persistence interface
+     */
     public Case(){}
 
     @ManyToOne
@@ -30,6 +39,10 @@ public class Case extends Parts {
     
     private CaseSize caseSize;
     
+    /**
+     * 
+     * @return The case size object
+     */
     public CaseSize getCaseSize() {
         return caseSize;
     }
