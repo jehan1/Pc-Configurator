@@ -5,6 +5,7 @@
  */
 package com.PcConfigurator.RestControllers;
 
+import com.Exceptions.PostException;
 import java.util.List;
 import java.util.ArrayList;
 
@@ -58,4 +59,13 @@ public class ProcessorRest{
         return filteredProcs;
     }
 
+        @PostMapping(path="/Processor")
+        public @ResponseBody Processor createProcessor(
+            @RequestBody Processor newProcessor){
+        
+            return processorRepository.save(newProcessor);
+        
+        }
+     
 }
+
