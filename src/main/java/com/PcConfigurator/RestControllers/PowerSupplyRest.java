@@ -37,8 +37,10 @@ public class PowerSupplyRest {
     }
   
     /**
-     * This method filters the Power supply by the 
+     * This method filters the Power supply by the no of molex connectors and 
+     * the voltage requirement
      * @param sVoltage This is an infinite parameter
+     * @param sMolex This is an infinite parameter
      * @return 
      */
     @GetMapping(path="/PowerSupply")
