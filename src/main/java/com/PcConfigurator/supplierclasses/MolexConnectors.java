@@ -26,22 +26,39 @@ public class MolexConnectors {
     @Column(name = "no_molex_connectors")
     @NotNull
     private int id;
+    
+    @OneToMany(mappedBy = "molexConnectors", cascade = CascadeType.ALL, 
+            orphanRemoval = true)
+    private List<PowerSupply> powerSupply = new ArrayList();
 
+    /**
+     * Empty constructor for the persistence framework
+     */
     public MolexConnectors(){}
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
-
+   
+    /**
+     * initialise the molex connector object
+     * @param id no of molex connectors
+     */
     public MolexConnectors(int id) {
         this.id = id;
     }
 
-    @OneToMany(mappedBy = "molexConnectors", cascade = CascadeType.ALL, 
-            orphanRemoval = true)
-    private List<PowerSupply> powerSupply = new ArrayList();
+    /**
+     * 
+     * @return the ID(no of molex connectors)
+     */
+    public int getId() {
+        return id;
+    }
+
+    /**
+     * Sets the number of molex connectors
+     * @param id no of molex connectors
+     */
+    public void setId(int id) {
+        this.id = id;
+    }
+
+   
 }
