@@ -5,7 +5,6 @@
  */
 package com.PcConfigurator.supplierclasses;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.CascadeType;
@@ -13,6 +12,7 @@ import javax.persistence.Entity;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 /**
  *
  * @author Jehan
@@ -21,9 +21,16 @@ import javax.persistence.Table;
 @Table(name = "storage_type")
 public class StorageType extends Parts{
 
-    public StorageType() {
-    }
+    /**
+     * Empty constructor for the persistence framework
+     */
+    public StorageType() { }
 
+    /**
+     * Initialise the port type
+     * @param id inherited from the superclass
+     * @param name inherited from the superclass
+     */
     public StorageType(int id, String name) {
         super(id, name);
     }
@@ -31,13 +38,20 @@ public class StorageType extends Parts{
     @JsonBackReference
     @OneToMany(mappedBy = "storageType", cascade = CascadeType.ALL, 
             orphanRemoval = true)
-    
     private List<StorageDrive> storageDrive = new ArrayList();
 
+    /**
+     * 
+     * @return the list of storage drives of the storage type
+     */
     public List<StorageDrive> getStorageDrive() {
         return storageDrive;
     }
 
+    /**
+     * Sets the storage type
+     * @param storageDrive type of storage
+     */
     public void setStorageDrive(List<StorageDrive> storageDrive) {
         this.storageDrive = storageDrive;
     }

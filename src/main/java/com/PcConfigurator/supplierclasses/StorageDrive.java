@@ -5,13 +5,13 @@
  */
 package com.PcConfigurator.supplierclasses;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import javax.persistence.Entity;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 /**
  *
  * @author Jehan 
@@ -21,7 +21,7 @@ import javax.validation.constraints.NotNull;
 public class StorageDrive extends Parts {
     
     @NotNull
-    private int capasity;
+    private int capacity;
     
     @JsonManagedReference
     @ManyToOne
@@ -32,44 +32,74 @@ public class StorageDrive extends Parts {
     @JsonManagedReference
     @ManyToOne
     @JoinColumn(name = " m_ports_id ")
-    
     private PortsM portsM;
 
-    public StorageDrive() {
-        
-    }
+    /**
+     * Empty constructor for the persistence framework
+     */
+    public StorageDrive() {}
 
-    public StorageDrive(int capasity, StorageType storageType, PortsM portsM, 
+    /**
+     * 
+     * @param capacity memory capacity of the storage 
+     * @param storageType type of the storage
+     * @param portsM m.2 port initialising 
+     * @param id  inherited from the super class
+     * @param name inherited from the super class
+     */
+    public StorageDrive(int capacity, StorageType storageType, PortsM portsM, 
             int id, String name) {
         super(id, name);
-        this.capasity = capasity;
+        this.capacity = capacity;
         this.storageType = storageType;
         this.portsM = portsM;
     }
 
-    public int getCapasity() {
-        return capasity;
+    /**
+     * 
+     * @return the memory capacity of the Storage drive
+     */
+    public int getCapacity() {
+        return capacity;
     }
 
-    public void setCapasity(int capasity) {
-        this.capasity = capasity;
+    /**
+     * Sets the Capacity of the storage drive
+     * @param capacity the memory capacity of the Storage drive
+     */
+    public void setCapacity(int capacity) {
+        this.capacity = capacity;
     }
 
+    /**
+     * 
+     * @return the storage type of the drive
+     */
     public StorageType getStorageType() {
         return storageType;
     }
 
+    /**
+     * Sets the type of the drive
+     * @param storageType type of the drive
+     */
     public void setStorageType(StorageType storageType) {
         this.storageType = storageType;
     }
 
+    /**
+     * 
+     * @return the M.2 port object
+     */
     public PortsM getPortsM() {
         return portsM;
     }
 
+    /**
+     * Sets the M.2 Port
+     * @param portsM m.2 port
+     */
     public void setPortsM(PortsM portsM) {
         this.portsM = portsM;
     }
-    
-    
 }
