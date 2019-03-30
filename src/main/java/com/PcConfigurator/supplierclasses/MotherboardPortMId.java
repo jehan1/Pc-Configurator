@@ -10,7 +10,7 @@ import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
 /**
- *
+ * This is the composite ID class for the table motherboard_has_m_ports
  * @author Jehan
  */
 @Embeddable
@@ -22,25 +22,49 @@ public class MotherboardPortMId implements Serializable{
     @Column(name = "m_ports_id")
     private int portMId;
 
+    /**
+     * Initialises the object
+     * @param motherboardId
+     * @param portMId 
+     */
     public MotherboardPortMId(int motherboardId, int portMId) {
         this.motherboardId = motherboardId;
         this.portMId = portMId;
     }
-    
+  
+    /**
+     * Empty constructor for the persistence object
+     */
     public MotherboardPortMId() {}
 
+    /**
+     * get the motherboard ID
+     * @return 
+     */
     public int getMotherboardId() {
         return motherboardId;
     }
 
+    /**
+     * Set the mother board Id
+     * @param motherboardId 
+     */
     public void setMotherboardId(int motherboardId) {
         this.motherboardId = motherboardId;
     }
 
+    /**
+     * 
+     * @return the M.2 mort ID
+     */
     public int getPortMId() {
         return portMId;
     }
 
+    /**
+     * the M.2 mort ID
+     * @param portMId 
+     */
     public void setPortMId(int portMId) {
         this.portMId = portMId;
     }
@@ -73,6 +97,5 @@ public class MotherboardPortMId implements Serializable{
         }
         return true;
     }
-    
-    
+
 }
