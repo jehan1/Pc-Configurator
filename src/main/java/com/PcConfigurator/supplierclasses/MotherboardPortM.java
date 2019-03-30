@@ -5,9 +5,10 @@
  */
 package com.PcConfigurator.supplierclasses;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import java.io.Serializable;
+
 import java.util.Objects;
+
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
@@ -17,6 +18,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.MapsId;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 /**
  *
  * @author Jehan
@@ -43,18 +45,54 @@ public class MotherboardPortM implements Serializable{
     @Column(name = "quantity")
     private int quantity;
 
+    /**
+     * Initialise the object
+     * @param id
+     * @param motherboard
+     * @param portM
+     * @param quantity 
+     */
+    public MotherboardPortM(MotherboardPortMId id, Motherboard motherboard,
+            PortsM portM, int quantity) {
+        this.id = id;
+        this.motherboard = motherboard;
+        this.portM = portM;
+        this.quantity = quantity;
+    }
+
+    /**
+     * empty constructor for the persistence framework
+     */
+    public MotherboardPortM() {}
+    
+    /**
+     * 
+     * @return The composite ID
+     */
     public MotherboardPortMId getId() {
         return id;
     }
 
+    /**
+     * Sets the composite Id
+     * @param id 
+     */
     public void setId(MotherboardPortMId id) {
         this.id = id;
     }
 
+    /**
+     * 
+     * @return The no of M.2 ports
+     */
     public int getQuantity() {
         return quantity;
     }
 
+    /**
+     * Set the no of M.2 ports
+     * @param quantity 
+     */
     public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
