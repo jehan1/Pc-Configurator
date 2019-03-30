@@ -10,7 +10,7 @@ import javax.persistence.Column;
 import javax.persistence.Embeddable;
 
 /**
- *
+ * This is the composite Id class for the table motherboard_has_video_ports
  * @author Jehan
  */
 @Embeddable
@@ -22,25 +22,49 @@ public class MotherboardVideoPortId implements Serializable{
     @Column(name = "video_ports_id")
     private int videoPortsId;
 
+    /**
+     * Initialises the object
+     * @param motherboardCardId
+     * @param videoPortsId 
+     */
     public MotherboardVideoPortId(int motherboardCardId, int videoPortsId) {
         this.motherboardId = motherboardCardId;
         this.videoPortsId = videoPortsId;
     }
-    
+  
+    /**
+     * Empty Constructor for the persistence framework
+     */
     public MotherboardVideoPortId(){}
 
+    /**
+     * 
+     * @return The motherboard Id
+     */
     public int getMotherboardId() {
         return motherboardId;
     }
 
+    /**
+     * Set the motherboard Id
+     * @param motherboardId 
+     */
     public void setMotherboardId(int motherboardId) {
         this.motherboardId = motherboardId;
     }
 
+    /**
+     * 
+     * @return the video port ID
+     */
     public int getVideoPortsId() {
         return videoPortsId;
     }
 
+    /**
+     * Set the video port ID
+     * @param videoPortsId 
+     */
     public void setVideoPortsId(int videoPortsId) {
         this.videoPortsId = videoPortsId;
     }
