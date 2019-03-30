@@ -5,17 +5,17 @@
  */
 package com.PcConfigurator.supplierclasses;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import java.util.ArrayList;
 import java.util.List;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 /**
- *
+ * This is the entity class for the Video Ports database table
  * @author Jehan 
  */
 @Entity
@@ -25,66 +25,39 @@ public class VideoPorts extends Parts {
     @JsonBackReference
     @ManyToMany(mappedBy ="videoPort")
     private List<Monitors> monitors;
-    
-    public List<Monitors> getMonitors() {
-        return monitors;
-    }
-    
+
     @JsonBackReference
     @OneToMany(
         mappedBy = "videoPorts",
         cascade = CascadeType.ALL,
-        orphanRemoval = true
-    )
-    private List<GraphicsCardsVideoPorts> gCards = new ArrayList
-            <GraphicsCardsVideoPorts>();
+        orphanRemoval = true)
+    private List<GraphicsCardsVideoPorts> gCards;
 
     @JsonBackReference
     @OneToMany(
         mappedBy = "motherboard",
         cascade = CascadeType.ALL,
-        orphanRemoval = true
-    )
-    private List<MotherboardVideoPorts> motherboards = new ArrayList
-            <MotherboardVideoPorts>();
+        orphanRemoval = true)
+    private List<MotherboardVideoPorts> motherboards;
+   
+    /**
+     * Empty constructor for the persistence framework
+     */
+    public VideoPorts() {}
     
-    public VideoPorts() {
+    /**
+     * 
+     * @param monitors List of monitors 
+     * @param id
+     * @param name 
+     */
+    public VideoPorts( int id, String name) {
+        super(id, name);
+        this.monitors = monitors;
     }
 
     public List<MotherboardVideoPorts> getMotherboards() {
         return motherboards;
     }
 
-    public List<GraphicsCardsVideoPorts> getGraphicsCards() {
-        return gCards;
-    }
-
-    public void setGraphicsCards(List<GraphicsCardsVideoPorts> graphicsCards) {
-        this.gCards = graphicsCards;
-    }
-
-    
-    public VideoPorts(List<Monitors> monitors, int id, String name) {
-        super(id, name);
-        this.monitors = monitors;
-    }
-
-    public void setMonitors(List<Monitors> monitors) {
-        this.monitors = monitors;
-    }
-
-    public List<GraphicsCardsVideoPorts> getgCards() {
-        return gCards;
-    }
-
-    public void setgCards(List<GraphicsCardsVideoPorts> gCards) {
-        this.gCards = gCards;
-    }
-
-    @Override
-    public int getId() {
-        return super.getId(); //To change body of generated methods, choose Tools | Templates.
-    }
-    
-    
 }
