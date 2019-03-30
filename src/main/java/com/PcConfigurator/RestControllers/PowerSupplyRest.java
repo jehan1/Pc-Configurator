@@ -51,15 +51,15 @@ public class PowerSupplyRest {
         int molex = Integer.parseInt(sMolex);
         
         List<PowerSupply> allPpwerSupply = powerSupplyRepository.findAll();
-        List<PowerSupply> filteredPpwerSupply = new ArrayList<>();
+        List<PowerSupply> filteredPowerSupply = new ArrayList<>();
  
         for( PowerSupply temp : allPpwerSupply){
             if(temp.getVoltage() >= voltage + 150 && 
                     temp.getMolexConnectors().getId() > molex){
-                filteredPpwerSupply.add(temp);
+                filteredPowerSupply.add(temp);
             }
         }
-        return filteredPpwerSupply;
+        return filteredPowerSupply;
     }
     
 }
