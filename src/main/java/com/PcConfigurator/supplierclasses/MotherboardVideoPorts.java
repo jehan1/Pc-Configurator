@@ -5,9 +5,10 @@
  */
 package com.PcConfigurator.supplierclasses;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import java.io.Serializable;
+
 import java.util.Objects;
+
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
@@ -17,6 +18,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.MapsId;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 /**
  *
  * @author Jehan
@@ -51,7 +53,6 @@ public class MotherboardVideoPorts implements Serializable {
         this.quantity = quantity;
     }
 
-   
     public MotherboardVideoPorts() {}
 
     public MotherboardVideoPortId getId() {
@@ -60,22 +61,6 @@ public class MotherboardVideoPorts implements Serializable {
 
     public void setId(MotherboardVideoPortId id) {
         this.id = id;
-    }
-
-    public Motherboard getMotherboard() {
-        return motherboard;
-    }
-
-    public void setMotherboard(Motherboard motherboard) {
-        this.motherboard = motherboard;
-    }
-
-    public VideoPorts getVideoPorts() {
-        return videoPorts;
-    }
-
-    public void setVideoPorts(VideoPorts videoPorts) {
-        this.videoPorts = videoPorts;
     }
 
     public int getQuantity() {
@@ -114,8 +99,4 @@ public class MotherboardVideoPorts implements Serializable {
         }
         return true;
     }
-    
-    
-    
-    
 }

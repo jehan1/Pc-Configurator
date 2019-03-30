@@ -38,7 +38,7 @@ public class MotherboardPortM implements Serializable{
     @ManyToOne(fetch = FetchType.LAZY)
     @MapsId("portMId")
     @JoinColumn(name = "m_ports_id")
-    private VideoPorts portM;
+    private PortsM portM;
    
     @Column(name = "quantity")
     private int quantity;
@@ -51,22 +51,6 @@ public class MotherboardPortM implements Serializable{
         this.id = id;
     }
 
-    public Motherboard getMotherboard() {
-        return motherboard;
-    }
-
-    public void setMotherboard(Motherboard motherboard) {
-        this.motherboard = motherboard;
-    }
-
-    public VideoPorts getPortM() {
-        return portM;
-    }
-
-    public void setPortM(VideoPorts portM) {
-        this.portM = portM;
-    }
-
     public int getQuantity() {
         return quantity;
     }
@@ -75,8 +59,6 @@ public class MotherboardPortM implements Serializable{
         this.quantity = quantity;
     }
 
-    
-    
     @Override
     public int hashCode() {
         int hash = 7;
@@ -101,6 +83,5 @@ public class MotherboardPortM implements Serializable{
         }
         return true;
     }
-    
-    
+ 
 }

@@ -5,7 +5,7 @@
  */
 package com.PcConfigurator.supplierclasses;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
+
 import java.io.Serializable;
 import java.util.Objects;
 import javax.persistence.Column;
@@ -17,8 +17,10 @@ import javax.persistence.ManyToOne;
 import javax.persistence.MapsId;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
 /**
- *
+ *This is the entity class for the table motherboard_has_pci_lanes
  * @author Jehan
  */
 @Entity
@@ -38,43 +40,45 @@ public class MotherboardPciLanes implements Serializable{
     @ManyToOne(fetch = FetchType.LAZY)
     @MapsId("pciLaneId")
     @JoinColumn(name = "pci_lanes_id")
-    private VideoPorts pciLanes;
+    private PciLanes pciLanes;
    
     @Column(name = "quantity")
     private int quantity;
 
+    /**
+     * Initialises the Motherboard PCI lane object
+     * @param id
+     * @param motherboard
+     * @param pciLanes
+     * @param quantity 
+     */
     public MotherboardPciLanes(MotherboardPciLanesId id, 
-            Motherboard motherboard, VideoPorts pciLanes, int quantity) {
+            Motherboard motherboard, PciLanes pciLanes, int quantity) {
         this.id = id;
         this.motherboard = motherboard;
         this.pciLanes = pciLanes;
         this.quantity = quantity;
     }
-    
+ 
+    /**
+     * Empty constructor for the persistence object
+     */
     public MotherboardPciLanes() {}
 
+    /**
+     * 
+     * @return get the  MotherboardPciLanes ID
+     */
     public MotherboardPciLanesId getId() {
         return id;
     }
 
+    /**
+     * Sets the MotherboardPciLanes ID
+     * @param id 
+     */
     public void setId(MotherboardPciLanesId id) {
         this.id = id;
-    }
-
-    public Motherboard getMotherboard() {
-        return motherboard;
-    }
-
-    public void setMotherboard(Motherboard motherboard) {
-        this.motherboard = motherboard;
-    }
-
-    public VideoPorts getPciLanes() {
-        return pciLanes;
-    }
-
-    public void setPciLanes(VideoPorts pciLanes) {
-        this.pciLanes = pciLanes;
     }
 
     public int getQuantity() {
@@ -110,6 +114,4 @@ public class MotherboardPciLanes implements Serializable{
         return true;
     }
 
-   
-    
 }
