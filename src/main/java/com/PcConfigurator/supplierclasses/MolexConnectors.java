@@ -58,7 +58,5 @@ public class MolexConnectors {
      */
     public void setId(int id) {
         this.id = id;
-    }
-
-   
+    } 
 }
