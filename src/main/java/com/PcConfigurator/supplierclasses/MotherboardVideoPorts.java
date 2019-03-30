@@ -20,7 +20,7 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 /**
- *
+ * Entity class for the table motherboard_has_video_ports
  * @author Jehan
  */
 @Entity
@@ -45,6 +45,13 @@ public class MotherboardVideoPorts implements Serializable {
     @Column(name = "quantity")
     private int quantity;
 
+    /**
+     * Initialise the object
+     * @param id
+     * @param motherboard
+     * @param videoPorts
+     * @param quantity 
+     */
     public MotherboardVideoPorts(MotherboardVideoPortId id,
             Motherboard motherboard, VideoPorts videoPorts, int quantity) {
         this.id = id;
@@ -53,20 +60,39 @@ public class MotherboardVideoPorts implements Serializable {
         this.quantity = quantity;
     }
 
+    /**
+     * Empty constructor for the persistence framework
+     */
     public MotherboardVideoPorts() {}
 
+    /**
+     * 
+     * @return the motherboard ID
+     */
     public MotherboardVideoPortId getId() {
         return id;
     }
 
+    /**
+     * Set the motherboard ID
+     * @param id 
+     */
     public void setId(MotherboardVideoPortId id) {
         this.id = id;
     }
 
+    /**
+     * 
+     * @return The no of video ports
+     */
     public int getQuantity() {
         return quantity;
     }
 
+    /**
+     * Sets the no of video ports
+     * @param quantity 
+     */
     public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
