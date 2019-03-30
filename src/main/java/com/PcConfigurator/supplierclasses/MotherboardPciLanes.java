@@ -81,10 +81,18 @@ public class MotherboardPciLanes implements Serializable{
         this.id = id;
     }
 
+    /**
+     * 
+     * @return The number of PCI lane in the motherboard
+     */
     public int getQuantity() {
         return quantity;
     }
 
+    /**
+     * Sets the number of PCI lanes
+     * @param quantity 
+     */
     public void setQuantity(int quantity) {
         this.quantity = quantity;
     }
