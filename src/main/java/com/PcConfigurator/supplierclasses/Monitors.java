@@ -81,7 +81,5 @@ public class Monitors extends Parts implements Serializable{
     public List<VideoPorts> getVideoPort() {
         return videoPort;
     }
-
-  
-    
+ 
 }

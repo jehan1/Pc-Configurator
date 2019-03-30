@@ -17,7 +17,7 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 
 /**
- *
+ * This is the Entity class for the Motherboard table
  * @author Jehan
  */
 @Entity

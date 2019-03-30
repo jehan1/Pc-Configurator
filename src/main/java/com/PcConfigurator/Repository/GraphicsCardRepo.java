@@ -10,7 +10,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 /**
- *
+ *  This is the Repository interface for the Graphics card Table
  * @author Jehan
  */
 @Repository

@@ -17,7 +17,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
- * The Rest Controller of the Storage Device class
+ * 
  * @author Jehan
  */
 @RestController
