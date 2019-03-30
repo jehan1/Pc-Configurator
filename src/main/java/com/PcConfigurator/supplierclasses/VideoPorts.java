@@ -46,16 +46,19 @@ public class VideoPorts extends Parts {
     public VideoPorts() {}
     
     /**
-     * 
-     * @param monitors List of monitors 
-     * @param id
-     * @param name 
+     * initialise the video port object 
+     * @param id id of the video port
+     * @param name name of the video port
      */
     public VideoPorts( int id, String name) {
         super(id, name);
         this.monitors = monitors;
     }
 
+    /**
+     * 
+     * @return  the list of motherboard video ports
+     */
     public List<MotherboardVideoPorts> getMotherboards() {
         return motherboards;
     }
