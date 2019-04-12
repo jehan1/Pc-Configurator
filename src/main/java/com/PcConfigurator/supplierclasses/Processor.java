@@ -37,6 +37,9 @@ public class Processor extends Parts {
     @NotNull
     private String speed;
     
+    @NotNull
+    private int voltage;
+    
     @ManyToOne
     @JoinColumn(name = "processor_socket_id")
     
@@ -66,7 +69,24 @@ public class Processor extends Parts {
     public void setSpeed(String speed) {
         this.speed = speed;
     }
-  
+
+    /**
+     * 
+     * @return the voltage required
+     */
+    public int getVoltage() {
+        return voltage;
+    }
+
+    /**
+     * Sets the required voltage
+     * @param voltage 
+     */
+    public void setVoltage(int voltage) {
+        this.voltage = voltage;
+    }
+    
+     
     /**
      * 
      * @return String representation of the processor table

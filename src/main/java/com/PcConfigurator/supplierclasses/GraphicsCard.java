@@ -29,6 +29,9 @@ public class GraphicsCard extends Parts {
     @NotNull
     String capacity;
     
+    @NotNull
+    String voltage;
+    
     @ManyToOne
     @JoinColumn(name = "pci_lanes_id")
     private PciLanes pciLanes;
@@ -125,6 +128,22 @@ public class GraphicsCard extends Parts {
      */
     public void setPciLanes(PciLanes pciLanes) {
         this.pciLanes = pciLanes;
+    }
+
+    /**
+     * 
+     * @return the voltage required 
+     */
+    public String getVoltage() {
+        return voltage;
+    }
+
+    /**
+     * Sets the required voltage
+     * @param voltage 
+     */
+    public void setVoltage(String voltage) {
+        this.voltage = voltage;
     }
 
     @Override
