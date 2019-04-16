@@ -47,8 +47,8 @@ public class StorageDrive extends Parts {
      * @param id  inherited from the super class
      * @param name inherited from the super class
      */
-    public StorageDrive(int capacity, StorageType storageType, PortsM portsM, 
-            int id, String name) {
+    public StorageDrive(int id, String name, int capacity,
+            StorageType storageType, PortsM portsM) {
         super(id, name);
         this.capacity = capacity;
         this.storageType = storageType;
