@@ -99,10 +99,11 @@ public class Motherboard extends Parts {
     * @param caseSize mother board size
     * @param memoryType memory type of the motherboard
     */
-    public Motherboard(int maxMemory, int noMemoryPorts, int noExpansionSlots, 
+    public Motherboard(int id, String name, int maxMemory, int noMemoryPorts, int noExpansionSlots, 
             boolean onBoardGraphics, MolexConnectors molexConnectors, 
             int noSataPorts, int noUsbHeaders, ProcessorSocket processorSocket,
             CaseSize caseSize, MemoryType memoryType) {
+        super(id,name);
         this.maxMemory = maxMemory;
         this.noMemoryPorts = noMemoryPorts;
         this.noExpansionSlots = noExpansionSlots;
@@ -115,6 +116,9 @@ public class Motherboard extends Parts {
         this.memoryType = memoryType;
     }
 
+    public Motherboard(int id, String name){
+        super(id,name);
+    }
     /**
      * empty constructor for the persistence model
      */
