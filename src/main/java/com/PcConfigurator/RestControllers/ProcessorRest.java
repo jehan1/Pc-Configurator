@@ -45,13 +45,13 @@ public class ProcessorRest{
  
     @GetMapping(path="/Processor")
     public @ResponseBody Iterable<Processor> findBySocket
-            (@RequestParam String socketId) {
+            (@RequestParam String id) {
         List<Processor> allProcs = processorRepository.findAll();
-        int Id =  Integer.parseInt(socketId);
+        int iId =  Integer.parseInt(id);
         
         List<Processor> filteredProcs = new ArrayList<Processor>();
         for (Processor proc: allProcs){
-            if (proc.getProcessorSocket().getId() == Id){
+            if (proc.getProcessorSocket().getId() == iId){
                 filteredProcs.add(proc);
             }
         }
