@@ -55,7 +55,7 @@ public class PowerSupplyRest {
  
         for( PowerSupply temp : allPpwerSupply){
             if(temp.getVoltage() >= voltage + 150 && 
-                    temp.getMolexConnectors().getId() > molex){
+                    temp.getMolexConnectors().getId() >= molex){
                 filteredPowerSupply.add(temp);
             }
         }

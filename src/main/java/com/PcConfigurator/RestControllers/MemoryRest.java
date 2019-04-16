@@ -41,7 +41,8 @@ public class MemoryRest {
      * @return List of memories filtered using the memory type id
      */
     @GetMapping(path="/Memory")
-    public @ResponseBody Iterable<Memory> getMemoryByMemoryType(@RequestParam String memTypeId){
+    public @ResponseBody Iterable<Memory> getMemoryByMemoryType
+        (@RequestParam String memTypeId){
         List<Memory> mems = memoryRepository.findAll();
         int id = Integer.parseInt(memTypeId);
         

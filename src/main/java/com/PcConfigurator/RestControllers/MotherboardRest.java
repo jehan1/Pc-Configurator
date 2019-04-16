@@ -20,7 +20,7 @@ import org.springframework.web.bind.annotation.RestController;
 public class MotherboardRest {
     
    @Autowired
-   MotherboardRepo motherboardRepository;
+   private MotherboardRepo motherboardRepository;
    
     @GetMapping(path="/Motherboard")
     public @ResponseBody Iterable<Motherboard> allMotherboards(){
