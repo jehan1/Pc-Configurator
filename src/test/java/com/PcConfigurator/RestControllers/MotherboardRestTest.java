@@ -47,7 +47,8 @@ public class MotherboardRestTest {
     public void getMotherboards() throws Exception {
 
         when(motherboardRepo.findAll()).thenReturn(motherboard);
-        ArrayList<Motherboard> h = (ArrayList<Motherboard>) motherboardRest.allMotherboards();
+        ArrayList<Motherboard> h = (ArrayList<Motherboard>) 
+                motherboardRest.allMotherboards();
        
         assertNotNull(h);
         Assert.assertEquals(2, h.size());
