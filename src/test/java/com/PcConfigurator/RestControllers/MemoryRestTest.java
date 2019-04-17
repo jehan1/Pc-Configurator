@@ -8,12 +8,14 @@ package com.PcConfigurator.RestControllers;
 import com.PcConfigurator.Repository.MemoryRepo;
 import com.PcConfigurator.supplierclasses.Memory;
 import com.PcConfigurator.supplierclasses.MemoryType;
+
 import java.util.ArrayList;
 import java.util.List;
+
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
-import static org.junit.Assert.*;
+
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import static org.mockito.Mockito.when;

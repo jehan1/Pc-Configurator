@@ -51,8 +51,8 @@ public class GraphicsCard extends Parts {
      * @param id Inherited from the super class
      * @param name Inherited from the super class
      */
-    public GraphicsCard(String capacity, PciLanes pciLanes,
-            MolexConnectors molexConnectors, int id, String name) {
+    public GraphicsCard(int id, String name, String capacity, PciLanes pciLanes,
+            MolexConnectors molexConnectors ) {
         super(id, name);
         this.capacity = capacity;
         this.pciLanes = pciLanes; 
