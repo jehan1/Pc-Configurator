@@ -43,6 +43,7 @@ public class MonitorsRestTest {
     public void setUp() {
         MockitoAnnotations.initMocks(this);
         vPorts = new ArrayList<>();
+        vPorts1 = new ArrayList<>();
         vPorts.add(new VideoPorts(1,"aa"));
         vPorts1.add(new VideoPorts(2,"bb"));
         
