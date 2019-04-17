@@ -15,7 +15,7 @@ import javax.persistence.Table;
 
 /**
  *
- * @author Jehan & Chethika
+ * @author Jehan 
  */
 @Entity
 @Table(name = "pci_lanes")

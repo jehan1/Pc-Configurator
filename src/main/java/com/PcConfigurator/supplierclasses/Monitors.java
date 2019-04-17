@@ -52,7 +52,7 @@ public class Monitors extends Parts implements Serializable{
      * @param id inherited from the super class
      * @param name inherited from the superclass
      */
-    public Monitors(List<VideoPorts> videoPorts, int hertz, int id, String name) {
+    public Monitors(int id, String name, List<VideoPorts> videoPorts, int hertz ) {
         super(id, name);
         this.videoPort = videoPorts;
         this.hertz = hertz;
