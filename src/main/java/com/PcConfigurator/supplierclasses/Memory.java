@@ -28,9 +28,10 @@ public class Memory extends Parts {
      * @param id = this is inherited from the superclass
      * @param name = name of the memory
      */
-    public Memory(int capacity, int id, String name) {
+    public Memory( int id, String name ,int capacity, MemoryType memoryType) {
         super(id, name);
         this.capacity = capacity;
+        this.memoryType = memoryType;
     }
 
     /**
