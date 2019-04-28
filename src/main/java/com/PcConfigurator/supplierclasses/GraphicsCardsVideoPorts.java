@@ -30,6 +30,9 @@ public class GraphicsCardsVideoPorts implements Serializable  {
     @EmbeddedId
     private GraphicsCardsVideoPortsId id;
     
+    @Column(name = "quantity")
+    private int quantity;
+    
     @JsonBackReference
     @ManyToOne(fetch = FetchType.LAZY)
     @MapsId("graphicsCardId")
@@ -41,9 +44,6 @@ public class GraphicsCardsVideoPorts implements Serializable  {
     @MapsId("videoPortsId")
     @JoinColumn(name = "video_ports_id")
     private VideoPorts videoPorts;
-   
-    @Column(name = "quantity")
-    private int quantity;
 
     /**
      * Initialise the graphics cards video ports object
