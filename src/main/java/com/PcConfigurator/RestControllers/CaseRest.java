@@ -40,7 +40,7 @@ public class CaseRest {
      * @return filtered list of Cases matching the Case Size name
      */
     @GetMapping(path="/Case")
-    public @ResponseBody Iterable<Case> filteredCase(@RequestParam String caseType){
+    public @ResponseBody Iterable<Case> findByName(@RequestParam String caseType){
         List<Case> allCases = caseRepository.findAll();
         
         List<Case> filteredCase = new ArrayList<>();

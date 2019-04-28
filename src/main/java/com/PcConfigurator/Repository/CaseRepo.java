@@ -17,5 +17,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface CaseRepo extends JpaRepository<Case, Integer>{
     
-    public List<Case> findBycaseSize(String name);
+    public List<Case> findByName(String name);
 }
