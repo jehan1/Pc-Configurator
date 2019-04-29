@@ -50,10 +50,10 @@ public class CaseRestTest {
      * Test of filteredCase method, of class CaseRest.
      */
     @Test
-    public void testFilteredCase() {
+    public void findByName() {
         when(caseRepo.findAll()).thenReturn(cse);
         ArrayList <Case> c = (ArrayList <Case>) 
-                caseRest.filteredCase("MATX");
+                caseRest.findByName("MATX");
        
         Assert.assertTrue(c.size()== 3);
     }
